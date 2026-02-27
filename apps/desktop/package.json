@@ -1,10 +1,11 @@
 {
   "name": "@nexora/desktop",
   "version": "1.0.0",
-  "main": "src/main/main.js",
+  "main": "dist/main/main.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev:expo\" \"wait-on http://localhost:19006 && npm run dev:electron\"",
+    "dev": "concurrently \"npm run dev:expo\" \"npm run compile:watch\" \"wait-on http://localhost:19006 dist/main/main.js && npm run dev:electron\"",
     "dev:expo": "expo start --web",
+    "compile:watch": "tsc --watch",
     "dev:electron": "electron .",
     "build": "npm run build:web && npm run build:electron",
     "build:web": "expo export --platform web",
