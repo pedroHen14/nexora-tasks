@@ -102,7 +102,7 @@ export function TaskListScreen({ navigation }: Props) {
             return (
               <TaskItem
                 task={section.item}
-                onToggle={() => toggleTask(section.item instanceof Object ? (section.item as Task).id : '')}
+                onToggle={() => toggleTask((section.item as Task).id)}
                 onEdit={() => navigation.navigate('EditTask', { taskId: (section.item as Task).id })}
                 onDelete={() => handleDelete((section.item as Task).id)}
               />
