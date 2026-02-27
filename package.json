@@ -1,0 +1,30 @@
+{
+  "name": "nexora-tasks",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "server"
+  ],
+  "scripts": {
+    "dev:server": "yarn workspace @nexora/server dev",
+    "dev:mobile": "yarn workspace @nexora/mobile start",
+    "dev:desktop": "yarn workspace @nexora/desktop dev",
+    "build:server": "yarn workspace @nexora/server build",
+    "build:mobile": "yarn workspace @nexora/mobile build",
+    "build:desktop": "yarn workspace @nexora/desktop build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
