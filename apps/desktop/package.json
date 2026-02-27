@@ -29,7 +29,6 @@
       "output": "release"
     },
     "files": [
-      "src/main/**/*",
       "dist/**/*"
     ],
     "linux": {
