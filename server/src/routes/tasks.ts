@@ -81,6 +81,16 @@ tasksRouter.put('/:id', async (req: AuthRequest, res: Response) => {
   }
 });
 
+tasksRouter.delete('/completed/all', async (req: AuthRequest, res: Response) => {
+  try {
+    await prisma.task.deleteMany({ where: { userId: req.userId, completed: true } });
+    res.json({ data: { message: 'Tarefas concluídas excluídas' } });
+  } catch (error) {
+    console.error('Delete completed tasks error:', error);
+    res.status(500).json({ error: 'Erro ao excluir tarefas concluídas' });
+  }
+});
+
 tasksRouter.delete('/:id', async (req: AuthRequest, res: Response) => {
   try {
     const { id } = req.params;
@@ -94,16 +104,6 @@ tasksRouter.delete('/:id', async (req: AuthRequest, res: Response) => {
   } catch (error) {
     console.error('Delete task error:', error);
     res.status(500).json({ error: 'Erro ao excluir tarefa' });
-  }
-});
-
-tasksRouter.delete('/completed/all', async (req: AuthRequest, res: Response) => {
-  try {
-    await prisma.task.deleteMany({ where: { userId: req.userId, completed: true } });
-    res.json({ data: { message: 'Tarefas concluídas excluídas' } });
-  } catch (error) {
-    console.error('Delete completed tasks error:', error);
-    res.status(500).json({ error: 'Erro ao excluir tarefas concluídas' });
   }
 });
 
