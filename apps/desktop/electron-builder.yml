@@ -1,0 +1,28 @@
+appId: com.nexora.tasks
+productName: Nexora Tasks
+
+directories:
+  output: release
+
+files:
+  - src/main/**/*
+  - dist/**/*
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Utility
+  description: Nexora Tasks - Gerenciador de tarefas diárias
+
+win:
+  target:
+    - nsis
+    - portable
+  icon: assets/icon.ico
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
